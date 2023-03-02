@@ -13,22 +13,25 @@ ALTRIMENTI
 */
 
 const userTextEl = document.getElementById(`user-text`);
-const btnEl = document.getElementById(`btn`);
+const btn1El = document.getElementById(`btn1`);
 const answerEl = document.getElementById(`answer`)
 
-btnEl.addEventListener(`click`, function () {
+btn1El.addEventListener(`click`, function () {
     let userWord = userTextEl.value;
     let reverseWord = wordReverse(userWord);
 
     if (userWord == reverseWord) {
-        answerEl.innerHTML =`la parola è palindroma`;
+        answerEl.innerHTML = `la parola è palindroma`;
     } else {
         answerEl.innerHTML = `la parola non è palindroma`;
     }
+
+    console.log(reverseWord)
 });
 
 
 function wordReverse(userWord) {
+
     let wordCharacters = userWord.split(``);
     let wordCharactersRev = wordCharacters.reverse();
     let wordRev = wordCharactersRev.join(``);
@@ -37,4 +40,3 @@ function wordReverse(userWord) {
 };
 
 // _________________________________________________________________
-
