@@ -17,26 +17,44 @@ const btn1El = document.getElementById(`btn1`);
 const answerEl = document.getElementById(`answer`)
 
 btn1El.addEventListener(`click`, function () {
-    let userWord = userTextEl.value;
-    let reverseWord = wordReverse(userWord);
+    isPalindrome(userTextEl.value);
 
-    if (userWord == reverseWord) {
-        answerEl.innerHTML = `la parola è palindroma`;
-    } else {
-        answerEl.innerHTML = `la parola non è palindroma`;
-    }
-
-    console.log(reverseWord)
 });
 
 
-function wordReverse(userWord) {
+function isPalindrome(userWord) {
 
     let wordCharacters = userWord.split(``);
     let wordCharactersRev = wordCharacters.reverse();
     let wordRev = wordCharactersRev.join(``);
 
-    return wordRev;
+    if (userWord == wordRev) {
+        answerEl.innerHTML = `la parola è palindroma`;
+        return true;
+    } else {
+        answerEl.innerHTML = `la parola non è palindroma`;
+        return false;
+    }
 };
 
 // _________________________________________________________________
+
+const evenOrOddEl = document.getElementById(`even-or-odd`);
+const userNumberEl = document.getElementById(`user-number`);
+const btn2El = document.getElementById(`btn2`);
+
+
+btn2El.addEventListener(`click`, function(){
+    let prova = randomNumberGenerator(number);
+
+    let userNumber = userNumberEl.value;
+
+    index = 0;
+    let addition = index + userNumber + prova;
+});
+
+
+function randomNumberGenerator(number){
+    let randomNumber = number = Math.floor(Math.random() * 5 + 1);
+    return randomNumber;
+}
